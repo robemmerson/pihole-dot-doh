@@ -1,4 +1,4 @@
-ARG FRM='ghcr.io/robemmerson/pihole-base-buster-plus'
+ARG FRM='flippinturt/pihole-base-buster-plus'
 ARG TAG='latest'
 
 FROM ${FRM}:${TAG}

@@ -1,4 +1,4 @@
-ARG FRM='flippinturt/pihole-base-buster-plus'
+ARG FRM='testdasi/pihole-dot-doh'
 ARG TAG='latest'
 
 FROM ${FRM}:${TAG}
@@ -7,8 +7,11 @@ ARG TAG
 
 ADD stuff /temp
 
-RUN /bin/bash /temp/install.sh \
-    && rm -f /temp/install.sh
+ADD web /var/www/html/pihole
+
+RUN /bin/bash /temp/install.sh && \
+    rm -f /temp/install.sh  && \
+    cp /temp/lighttpd.conf /etc/lighttpd/lighttpd.conf
 
 VOLUME ["/config"]
 
